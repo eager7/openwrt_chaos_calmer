@@ -1,8 +1,5 @@
-REVISION_OPENWRT = 20141127-30965ec3
-REVISION_OPENWRT_FEEDS = 20141127-30965ec3
-REVISION_LUCI = mtk-20141127-30965ec3
-
-DOWNLOAD_DIR = ./downloads/
+OPENWRT_DIR = ./openwrt
+DOWNLOAD_DIR = ./downloads
 
 .PHONY: 
 
@@ -27,4 +24,5 @@ menuconfig:
 	cd $(OPENWRT_DIR); make menuconfig
 	
 bulid:
+	ln -s $(DOWNLOAD_DIR) $(OPENWRT_DIR)/dl
 	cd $(OPENWRT_DIR); make V=s
